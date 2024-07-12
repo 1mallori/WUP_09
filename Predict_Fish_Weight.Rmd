@@ -57,8 +57,6 @@ if(!require("Bolstad")) {install.packages("Bolstad");require("Bolstad")}
 ```
 
 
-
-
 ## Perch
 
 ### Best Models
@@ -84,6 +82,8 @@ library(car)
 subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2")
 ```
 
+The best 2 regressor model to predict weight using Height and Width
+
 ### Best Two regressor model
 
 ```{r}
@@ -91,7 +91,6 @@ Perch2=lm(Weight~Height+Width,data=Perch)
 summary.lm(Perch2)
 ```
 
-The best 2 regressor model to predict weight using Height and Width
 
 ## Pike
 
@@ -117,7 +116,7 @@ library(car)
 subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2")
 ```
 
-The best regressor model is L1 L3.
+
 ### Best Two regressor model
 
 ```{r}
@@ -126,7 +125,7 @@ summary.lm(Pike2)
 ```
 
 
-The best 2 regressor model to predict weight using Length1 and Length3
+The best 2 regressor model Length1 and Length3
 
 ## Roach
 
@@ -152,17 +151,18 @@ library(car)
 subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2")
 ```
 
-The best 2 regressor model to predict weight using Length1 and Length3
 
 ### Best Two regressor model
 
 ```{r}
-Roach2=lm(Length1~Length3,data=Roach)
+Roach2=lm(Weight~Length3+Width, data=Roach)
 summary.lm(Roach2)
 ```
 
+The best regressor was Length3 and Width
 
 ## Final Summary Statements
 
 The best 2 regressor model to predict weight using Height and Width
 The best 2 regressor model to predict weight using Length1 and Length3
+The best regressor was Length3 and Width
